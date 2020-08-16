@@ -4,7 +4,8 @@ from datetime import timedelta
 app = Flask(__name__)
 
 app.secret_key = "H8QEt7JrraIV"
-app.permanent_session_lifetime = timedelta(days=14)
+app.permanent_session_lifetime = timedelta(minutes
+                                           =1)
 
 
 
@@ -25,7 +26,7 @@ def home_page():
         user =  session["user"]
         return render_template("main_page.html")
     else:
-        return render_template("index.html")
+        return redirect(url_for('Home_Page'))
 
 
 @app.route('/<usr>')
