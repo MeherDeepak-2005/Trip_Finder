@@ -18,6 +18,15 @@ def Home_Page():
         return redirect(url_for("user", usr=user))
     else:
         return render_template("index.html")
+    
+@app.route('/')
+def home_page():
+    if "user" in session:
+        user =  session["user"]
+        return render_template("main_page.html")
+    else:
+        return render_template("index.html")
+
 
 @app.route('/<usr>')
 def user(usr):
